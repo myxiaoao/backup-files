@@ -1,0 +1,652 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>结构生成器</title>
+
+</head>
+<body>
+<h1>结构生成器</h1>
+
+<ul>
+<li><a href="#introduction">简介</a></li>
+<li><a href="#creating-and-dropping-tables">创建和删除表</a></li>
+<li><a href="#adding-columns">添加字段</a></li>
+<li><a href="#renaming-columns">重命名字段</a></li>
+<li><a href="#dropping-columns">删除字段</a></li>
+<li><a href="#checking-existence">检查存在性</a></li>
+<li><a href="#adding-indexes">添加索引</a></li>
+<li><a href="#foreign-keys">外键</a></li>
+<li><a href="#dropping-indexes">删除索引</a></li>
+<li><a href="#storage-engines">存储引擎</a></li>
+</ul>
+
+
+<p><a name="introduction"></a></p>
+
+<h2>简介</h2>
+
+<p>Laravel 的 <code>Schema</code> 类提供了一种与数据库无关的方式维护表。它和 Laravel 所支持的所有数据库都能很好的工作，并且提供了统一的接口。</p>
+
+<p><a name="creating-and-dropping-tables"></a></p>
+
+<h2>创建和删除表</h2>
+
+<p>使用 <code>Schema::create</code> 创建一个数据库的表：</p>
+
+<pre><code>Schema::create('users', function($table)
+{
+    $table-&gt;increments('id');
+});
+</code></pre>
+
+<p>传递给 <code>create</code> 函数的第一个参数是表的名字，第二个参数是一个闭包，将接受一个 <code>Blueprint</code> 对象用于定义新的表。</p>
+
+<p>使用 <code>rename</code> 函数重命名一个已存在的表：</p>
+
+<pre><code>Schema::rename($from, $to);
+</code></pre>
+
+<p>使用 <code>Schema::connection</code> 函数指定结构操作所使用的数据库连接：</p>
+
+<pre><code>Schema::connection('foo')-&gt;create('users', function($table)
+{
+    $table-&gt;increments('id'):
+});
+</code></pre>
+
+<p>使用 <code>Schema::drop</code> 函数删除一个表：</p>
+
+<pre><code>Schema::drop('users');
+
+Schema::dropIfExists('users');
+</code></pre>
+
+<p><a name="adding-columns"></a></p>
+
+<h2>添加字段</h2>
+
+<p>使用 <code>Schema::table</code> 函数更新一个已存在的表：</p>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;string('email');
+});
+</code></pre>
+
+<p>表生成器包含一系列的字段类型用于构建表：</p>
+
+<table>
+<thead>
+<tr>
+<th>命令  </th>
+<th> 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;increments('id');</code>  </td>
+<td>  自动增长的 ID (主键).</td>
+</tr>
+<tr>
+<td><code>$table-&gt;string('email');</code>  </td>
+<td>  VARCHAR 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;string('name', 100);</code>  </td>
+<td>  带长度的 VARCHAR 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;integer('votes');</code>  </td>
+<td>  INTEGER 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;bigInteger('votes');</code>  </td>
+<td>  BIGINT 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;smallInteger('votes');</code>  </td>
+<td>  SMALLINT 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;float('amount');</code>  </td>
+<td>  FLOAT 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;decimal('amount', 5, 2);</code>  </td>
+<td>  带精度和小数的 DECIMAL</td>
+</tr>
+<tr>
+<td><code>$table-&gt;boolean('confirmed');</code>  </td>
+<td>  BOOLEAN 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;date('created_at');</code>  </td>
+<td>  DATE 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dateTime('created_at');</code>  </td>
+<td>  DATETIME 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;time('sunrise');</code>  </td>
+<td>  TIME 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestamp('added_on');</code>  </td>
+<td>  TIMESTAMP 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestamps();</code>  </td>
+<td>  添加 <strong>created_at</strong> 和 <strong>updated_at</strong> 列</td>
+</tr>
+<tr>
+<td><code>$table-&gt;softDeletes();</code>  </td>
+<td>  添加 <strong>deleted_at</strong> 列用于软删除</td>
+</tr>
+<tr>
+<td><code>$table-&gt;text('description');</code>  </td>
+<td>  TEXT 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;binary('data');</code>  </td>
+<td>  BLOB 类型</td>
+</tr>
+<tr>
+<td><code>$table-&gt;enum('choices', array('foo', 'bar'));</code> </td>
+<td> ENUM 类型</td>
+</tr>
+<tr>
+<td><code>-&gt;nullable()</code>  </td>
+<td>  指明该字段允许 NULL 值</td>
+</tr>
+<tr>
+<td><code>-&gt;default($value)</code>  </td>
+<td>  为字段声明一个默认值</td>
+</tr>
+<tr>
+<td><code>-&gt;unsigned()</code>  </td>
+<td>  设置 INTEGER 为无符号</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>如果你使用 MySQL 数据库，您可以使用 <code>after</code> 函数指明字段的顺序：</p>
+
+<p><strong>在 MySQL 中使用 After</strong></p>
+
+<pre><code>$table-&gt;string('name')-&gt;after('email');
+</code></pre>
+
+<p><a name="renaming-columns"></a></p>
+
+<h2>重命名字段</h2>
+
+<p>使用 <code>renameColumn</code> 函数重命名一个字段：</p>
+
+<p><strong>重命名一个字段</strong></p>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;renameColumn('from', 'to');
+});
+</code></pre>
+
+<blockquote><p><strong>注意:</strong> 不支持重命名 <code>enum</code> 字段类型.</p></blockquote>
+
+<p><a name="dropping-columns"></a></p>
+
+<h2>删除字段</h2>
+
+<p><strong>从表中删除一个字段</strong></p>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;dropColumn('votes');
+});
+</code></pre>
+
+<p><strong>从表中删除多个字段</strong></p>
+
+<pre><code>Schema::table('users', function($table)
+{
+    $table-&gt;dropColumn('votes', 'avatar', 'location');
+});
+</code></pre>
+
+<p><a name="checking-existence"></a></p>
+
+<h2>检查存在性</h2>
+
+<p>您可以使用 <code>hasTable</code> 和 <code>hasColumn</code> 检查一个表或一个字段是否存在：</p>
+
+<p><strong>检查表是否存在</strong></p>
+
+<pre><code>if (Schema::hasTable('users'))
+{
+    //
+}
+</code></pre>
+
+<p><strong>检查字段是否存在</strong></p>
+
+<pre><code>if (Schema::hasColumn('users', 'email'))
+{
+    //
+}
+</code></pre>
+
+<p><a name="adding-indexes"></a></p>
+
+<h2>添加索引</h2>
+
+<p>结构生成器支持多种类型的索引，有两种方法可以添加它们。首先，您可以在字段定义后链式的定义它们，或者独立的添加它们：</p>
+
+<p><strong>链式创建一个字段和索引</strong></p>
+
+<pre><code>$table-&gt;string('email')-&gt;unique();
+</code></pre>
+
+<p>或者，您可以选择在不同的行添加索引。下面是全部支持的索引类型：</p>
+
+<table>
+<thead>
+<tr>
+<th>命令  </th>
+<th> 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;primary('id');</code>  </td>
+<td>  添加一个主键</td>
+</tr>
+<tr>
+<td><code>$table-&gt;primary(array('first', 'last'));</code>  </td>
+<td>  添加组合键</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unique('email');</code>  </td>
+<td>  添加唯一键</td>
+</tr>
+<tr>
+<td><code>$table-&gt;index('state');</code>  </td>
+<td>  添加一个索引</td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a name="foreign-keys"></a></p>
+
+<h2>外键</h2>
+
+<p>Laravel 也支持向表中添加外键约束：</p>
+
+<p><strong>向表中添加外键</strong></p>
+
+<pre><code>$table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users');
+</code></pre>
+
+<p>在这个例子中，我们指明 <code>user_id</code> 字段参照 <code>users</code> 表中的 <code>id</code> 字段。</p>
+
+<p>您也可以指明 "on delete" 以及 "on update" 行为选项：</p>
+
+<pre><code>$table-&gt;foreign('user_id')
+      -&gt;references('id')-&gt;on('users')
+      -&gt;onDelete('cascade');
+</code></pre>
+
+<p>可以使用 <code>dropForeign</code> 函数删除一个外键。像其他索引一样，一个相似的命名惯例被使用于外键的命名：</p>
+
+<pre><code>$table-&gt;dropForeign('posts_user_id_foreign');
+</code></pre>
+
+<blockquote><p><strong>注意:</strong> 当创建一个参照递增整数类型的外键的时候，记得把外键字段的类型定义为无符号。</p></blockquote>
+
+<p><a name="dropping-indexes"></a></p>
+
+<h2>删除索引</h2>
+
+<p>为了删除索引，必须指明索引的名字。Laravel 默认为索引分配了一个合理的名字。通过连接表明、索引的字段名以及索引类型的形式。这里是一些例子：</p>
+
+<table>
+<thead>
+<tr>
+<th>命令  </th>
+<th> 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;dropPrimary('users_id_primary');</code>  </td>
+<td>  从 "users" 表中删除一个主键</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropUnique('users_email_unique');</code>  </td>
+<td>  从 "users" 表中删除一个唯一键</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropIndex('geo_state_index');</code>  </td>
+<td>  从 "geo" 表中删除一个索引</td>
+</tr>
+</tbody>
+</table>
+
+
+<p><a name="storage-engines"></a></p>
+
+<h2>存储引擎</h2>
+
+<p>通过在结构生成器设置 <code>engine</code> 属性为表设置存储引擎：</p>
+
+<pre><code>Schema::create('users', function($table)
+{
+    $table-&gt;engine = 'InnoDB';
+
+    $table-&gt;string('email');
+});
+</code></pre>
+</body>
+</html>

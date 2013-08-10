@@ -1,0 +1,652 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>路由</title>
+
+</head>
+<body>
+<h1>路由</h1>
+
+<ul>
+<li><a href="#basic-routing">基本路由</a></li>
+<li><a href="#route-parameters">路由参数</a></li>
+<li><a href="#route-filters">路由过滤器</a></li>
+<li><a href="#named-routes">命名路由</a></li>
+<li><a href="#route-groups">路由组</a></li>
+<li><a href="#sub-domain-routing">子域名路由</a></li>
+<li><a href="#route-prefixing">路由前缀</a></li>
+<li><a href="#route-model-binding">路由模型绑定</a></li>
+<li><a href="#throwing-404-errors">引发404错误</a></li>
+<li><a href="#routing-to-controllers">路由至控制器</a></li>
+</ul>
+
+
+<p><a name="basic-routing"></a></p>
+
+<h2>基本路由</h2>
+
+<p>您的应用程序的绝大多数路由将在 <code>app/routes.php</code> 文件中定义。Laravel 中最简单的路由由一个 URI 和一个闭包调用组成。</p>
+
+<p><strong>基本 GET 路由</strong></p>
+
+<pre><code>Route::get('/', function()
+{
+    return 'Hello World';
+});
+</code></pre>
+
+<p><strong>基本 POST 路由</strong></p>
+
+<pre><code>Route::post('foo/bar', function()
+{
+    return 'Hello World';
+});
+</code></pre>
+
+<p><strong>注册一个路由以响应所有 HTTP 方法</strong></p>
+
+<pre><code>Route::any('foo', function()
+{
+    return 'Hello World';
+});
+</code></pre>
+
+<p><strong>强制一个路由必须通过 HTTPS 访问</strong></p>
+
+<pre><code>Route::get('foo', array('https', function()
+{
+    return 'Must be over HTTPS';
+}));
+</code></pre>
+
+<p>经常您需要根据路由产生 URLs，您可以通过使用 <code>URL::to</code> 方法：</p>
+
+<pre><code>$url = URL::to('foo');
+</code></pre>
+
+<p><a name="route-parameters"></a></p>
+
+<h2>路由参数</h2>
+
+<pre><code>Route::get('user/{id}', function($id)
+{
+    return 'User '.$id;
+});
+</code></pre>
+
+<p><strong>可选的路由参数</strong></p>
+
+<pre><code>Route::get('user/{name?}', function($name = null)
+{
+    return $name;
+});
+</code></pre>
+
+<p><strong>带默认值的可选的路由参数</strong></p>
+
+<pre><code>Route::get('user/{name?}', function($name = 'John')
+{
+    return $name;
+});
+</code></pre>
+
+<p><strong>带正则表达式约束的路由</strong></p>
+
+<pre><code>Route::get('user/{name}', function($name)
+{
+    //
+})
+-&gt;where('name', '[A-Za-z]+');
+
+Route::get('user/{id}', function($id)
+{
+    //
+})
+-&gt;where('id', '[0-9]+');
+</code></pre>
+
+<p><a name="route-filters"></a></p>
+
+<h2>路由过滤器</h2>
+
+<p>路由过滤器提供了一种限制访问指定路由的简单的方法，这在您需要为您的站点创建需要认证区域的时候非常有用。Laravel 框架中包含了一些路由过滤器，比如 <code>auth</code> 过滤器、<code>auth.basic</code> 过滤器、<code>guest</code> 过滤器、以及 <code>csrf</code> 过滤器。它们被存放在 <code>app/filters.php</code> 文件中。</p>
+
+<p><strong>定义一个路由过滤器</strong></p>
+
+<pre><code>Route::filter('old', function()
+{
+    if (Input::get('age') &lt; 200)
+    {
+        return Redirect::to('home');
+    }
+});
+</code></pre>
+
+<p>如果一个响应从一个路由过滤器中返回，这个响应即被认为是这个请求的响应，路由将不被执行，任何关于这个路由的 <code>after</code> 过滤器也将被取消执行。</p>
+
+<p><strong>为一个路由指定一个路由过滤器</strong></p>
+
+<pre><code>Route::get('user', array('before' =&gt; 'old', function()
+{
+    return 'You are over 200 years old!';
+}));
+</code></pre>
+
+<p><strong>为一个路由指定多个路由过滤器</strong></p>
+
+<pre><code>Route::get('user', array('before' =&gt; 'auth|old', function()
+{
+    return 'You are authenticated and over 200 years old!';
+}));
+</code></pre>
+
+<p><strong>指定路由过滤器参数</strong></p>
+
+<pre><code>Route::filter('age', function($route, $request, $value)
+{
+    //
+});
+
+Route::get('user', array('before' =&gt; 'age:200', function()
+{
+    return 'Hello World';
+}));
+</code></pre>
+
+<p>当路由过滤器接收到作为第三个参数的响应 <code>$response</code>:</p>
+
+<pre><code>Route::filter('log', function($route, $request, $response, $value)
+{
+    //
+});
+</code></pre>
+
+<p><strong>基本路由过滤器的模式</strong></p>
+
+<p>您可能希望根据 URI 为一组路由指定过滤器。</p>
+
+<pre><code>Route::filter('admin', function()
+{
+    //
+});
+
+Route::when('admin/*', 'admin');
+</code></pre>
+
+<p>在上面的例子中，<code>admin</code> 过滤器将应用带所有以 <code>admin/</code> 开头的路由。星号作为一个通配符，将适配到所有字符的组合。</p>
+
+<p>您也可以通过指定 HTTP 方法约束模式过滤器：</p>
+
+<pre><code>Route::when('admin/*', 'admin', array('post'));
+</code></pre>
+
+<p><strong>过滤器类</strong></p>
+
+<p>对于高级的过滤器，您可以使用一个类代替闭包函数。因为过滤器类是位于应用程序之外的 <a href="/docs/ioc">IoC 容器</a>，您能够在过滤器中使用依赖注入，更易于测试。</p>
+
+<p><strong>定义一个过滤器类</strong></p>
+
+<pre><code>class FooFilter {
+
+    public function filter()
+    {
+        // Filter logic...
+    }
+
+}
+</code></pre>
+
+<p><strong>注册一个基于类的过滤器</strong></p>
+
+<pre><code>Route::filter('foo', 'FooFilter');
+</code></pre>
+
+<p><a name="named-routes"></a></p>
+
+<h2>命名路由</h2>
+
+<p>命名路由在更易于在生成跳转或 URLs 时指定路由。您可以像这样为路由指定一个名字：</p>
+
+<pre><code>Route::get('user/profile', array('as' =&gt; 'profile', function()
+{
+    //
+}));
+</code></pre>
+
+<p>您也可以为控制器的方法指定路由名字：</p>
+
+<pre><code>Route::get('user/profile', array('as' =&gt; 'profile', 'uses' =&gt; 'UserController@showProfile'));
+</code></pre>
+
+<p>现在您在生成 URLs 或跳转的时候使用路由的名字：</p>
+
+<pre><code>$url = URL::route('profile');
+
+$redirect = Redirect::route('profile');
+</code></pre>
+
+<p>您可以使用 <code>currentRouteName</code> 方法获取一个路由的名字：</p>
+
+<pre><code>$name = Route::currentRouteName();
+</code></pre>
+
+<p><a name="route-groups"></a></p>
+
+<h2>路由组</h2>
+
+<p>有些时候您可能希望应用过滤器到一组路由。您不必要为每个路由指定过滤器，可以使用路由组：</p>
+
+<pre><code>Route::group(array('before' =&gt; 'auth'), function()
+{
+    Route::get('/', function()
+    {
+        // Has Auth Filter
+    });
+
+    Route::get('user/profile', function()
+    {
+        // Has Auth Filter
+    });
+});
+</code></pre>
+
+<p><a name="sub-domain-routing"></a></p>
+
+<h2>子域名路由</h2>
+
+<p>Laravel 路由也能够处理通配符的子域名，并且从域名中获取通配符参数：</p>
+
+<p><strong>注册子域名路由</strong></p>
+
+<pre><code>Route::group(array('domain' =&gt; '{account}.myapp.com'), function()
+{
+
+    Route::get('user/{id}', function($account, $id)
+    {
+        //
+    });
+
+});
+</code></pre>
+
+<p><a name="route-prefixing"></a></p>
+
+<h2>路由前缀</h2>
+
+<p>一组路由可以通过在属性数组中使用 <code>prefix</code> 选项为路由组添加前缀：</p>
+
+<p><strong>为路由组添加前缀</strong></p>
+
+<pre><code>Route::group(array('prefix' =&gt; 'admin'), function()
+{
+
+    Route::get('user', function()
+    {
+        //
+    });
+
+});
+</code></pre>
+
+<p><a name="route-model-binding"></a></p>
+
+<h2>路由模型绑定</h2>
+
+<p>模型绑定提供了一个简单的方法向路由中注入模型。比如，不仅注入一个用户的 ID，您可以根据指定的 ID 注入整个用户模型实例。首先使用 <code>Route::model</code> 方法指定所需要的模型：</p>
+
+<p><strong>为模型绑定一个变量</strong></p>
+
+<pre><code>Route::model('user', 'User');
+</code></pre>
+
+<p>然后, 定义一个包含 <code>{user}</code> 参数的路由:</p>
+
+<pre><code>Route::get('profile/{user}', function(User $user)
+{
+    //
+});
+</code></pre>
+
+<p>因为我们已经绑定 <code>{user}</code> 参数到 <code>User</code> 模型，一个 <code>User</code> 实例将被注入到路由中。因此，比如一个 <code>profile/1</code> 的请求将注入一个 ID 为 1 的 <code>User</code> 实例。</p>
+
+<blockquote><p><strong>注意:</strong> 如果在数据库中没有找到这个模型实例，将引发404错误。</p></blockquote>
+
+<p>如果您希望指定您自己定义的没有找到的行为，您可以为 <code>model</code> 方法传递一个闭包作为第三个参数：</p>
+
+<pre><code>Route::model('user', 'User', function()
+{
+    throw new NotFoundException;
+});
+</code></pre>
+
+<p>有时您希望使用自己的方法处理路由参数，可以使用 <code>Route::bind</code> 方法：</p>
+
+<pre><code>Route::bind('user', function($value, $route)
+{
+    return User::where('name', $value)-&gt;first();
+});
+</code></pre>
+
+<p><a name="throwing-404-errors"></a></p>
+
+<h2>引发404错误</h2>
+
+<p>有两种方法在路由中手动触发一个404错误。首先，您可以使用 <code>App::abort</code> 方法：</p>
+
+<pre><code>App::abort(404);
+</code></pre>
+
+<p>其次，您可以抛出一个 <code>Symfony\Component\HttpKernel\Exception\NotFoundHttpException</code> 的实例。</p>
+
+<p>更多关于处理404异常和为这些错误使用使用自定义响应的信息可以在 <a href="/docs/errors#handling-404-errors">错误</a> 章节中找到。</p>
+
+<p><a name="routing-to-controllers"></a></p>
+
+<h2>路由至控制器</h2>
+
+<p>Laravel 不仅允许您路由至闭包，也可以路由至控制器类，甚至允许创建 <a href="/docs/controllers#resource-controllers">资源控制器</a>.</p>
+
+<p>更多信息请访问 <a href="/docs/controllers">控制器</a> 文档。</p>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>安全</title>
+
+</head>
+<body>
+<h1>安全</h1>
+
+<ul>
+<li><a href="#configuration">配置</a></li>
+<li><a href="#storing-passwords">存储密码</a></li>
+<li><a href="#authenticating-users">认证用户</a></li>
+<li><a href="#manually">手动登录用户</a></li>
+<li><a href="#protecting-routes">路由保护</a></li>
+<li><a href="#http-basic-authentication">HTTP基本认证</a></li>
+<li><a href="#password-reminders-and-reset">密码提醒和重置</a></li>
+<li><a href="#encryption">加密</a></li>
+</ul>
+
+
+<p><a name="configuration"></a></p>
+
+<h2>配置</h2>
+
+<p>Laravel旨在使得身份验证变得非常简单。事实上，几乎所有一切都已经为您配置好。验证配置文件位于 <code>app/config/auth.php</code>，其中包含几个详尽注释的选项可用于调整认证的行为。</p>
+
+<p>默认情况下，Laravel包含一个 <code>User</code> 模型在 <code>app/models</code> 目录，可在默认的Eloquent认证驱动下使用。请记住当构建这个模型的结构时请确认密码域最少60个字符。</p>
+
+<p>如果您的应用程序不打算使用Eloquent，您可以使用 <code>database</code> 认证驱动，该驱动使用Laravel查询生成器。</p>
+
+<p><a name="storing-passwords"></a></p>
+
+<h2>存储密码</h2>
+
+<p>Laravel的 <code>Hash</code> 类提供了安全的Bcrypt散列:</p>
+
+<p><strong>使用Bcrypt散列加密一个密码</strong></p>
+
+<pre><code>$password = Hash::make('secret');
+</code></pre>
+
+<p><strong>根据一个哈希值验证一个密码</strong></p>
+
+<pre><code>if (Hash::check('secret', $hashedPassword))
+{
+    // The passwords match...
+}
+</code></pre>
+
+<p><strong>检查是否一个密码需要被再次加密</strong></p>
+
+<pre><code>if (Hash::needsRehash($hashed))
+{
+    $hashed = Hash::make('secret');
+}
+</code></pre>
+
+<p><a name="authenticating-users"></a></p>
+
+<h2>认证用户</h2>
+
+<p>使一个用户登录到您的应用程序，您可以使用 <code>Auth::attempt</code> 函数：</p>
+
+<pre><code>if (Auth::attempt(array('email' =&gt; $email, 'password' =&gt; $password)))
+{
+    return Redirect::intended('dashboard');
+}
+</code></pre>
+
+<p>注意 <code>email</code> 不是一个必需的选项，它只是用于示例。您应该使用数据库中任何代表用户名的字段的名字。<code>Redirect::intended</code> 函数将用户重定向到他们之前尝试访问的但被认证过滤器拦截的URL。一个备选的URI给这个函数用于防止目的地址是不可用的。</p>
+
+<p>当 <code>attempt</code> 函数被调用，<code>auth.attempt</code> <a href="/docs/events">事件</a>被触发。如果认证尝试是成功的，用户将登录，<code>auth.login</code> 事件也将被触发。</p>
+
+<p>确定一个用户是否已经登录到您的应用程序，您可以使用 <code>check</code> 函数。</p>
+
+<p><strong>确认一个用户是否被认证</strong></p>
+
+<pre><code>if (Auth::check())
+{
+    // The user is logged in...
+}
+</code></pre>
+
+<p>如果您希望在应用程序中提供“记住我”这样的功能，您可以传递 <code>true</code> 作为第二个参数到 <code>attempt</code> 函数，它将无限期保持用户认证（或者直到他们手动注销）：</p>
+
+<p><strong>认证用户并“记住”他们</strong></p>
+
+<pre><code>if (Auth::attempt(array('email' =&gt; $email, 'password' =&gt; $password), true))
+{
+    // The user is being remembered...
+}
+</code></pre>
+
+<p><strong>注意:</strong> 如果 <code>attempt</code> 函数返回 <code>true</code>，用户将被认为已登录到应用程序。</p>
+
+<p>您也可以添加额外的条件来认证查询：</p>
+
+<p><strong>带条件的用户认证</strong></p>
+
+<pre><code>if (Auth::attempt(array('email' =&gt; $email, 'password' =&gt; $password, 'active' =&gt; 1)))
+{
+    // The user is active, not suspended, and exists.
+}
+</code></pre>
+
+<p>一旦用户通过认证，您可以访问用户模型/记录：</p>
+
+<p><strong>获取登录的用户</strong></p>
+
+<pre><code>$email = Auth::user()-&gt;email;
+</code></pre>
+
+<p>可以使用 <code>loginUsingId</code> 函数根据他们的ID记录用户登录到应用程序：</p>
+
+<pre><code>Auth::loginUsingId(1);
+</code></pre>
+
+<p><code>validate</code> 函数允许您验证用户凭证而不实际上让他们登录到应用程序：</p>
+
+<p><strong>验证用户凭证而不登录</strong></p>
+
+<pre><code>if (Auth::validate($credentials))
+{
+    //
+}
+</code></pre>
+
+<p>您也可以使用 <code>once</code> 函数为单次请求让用户登录到到应用程序。没有会话或Cookie会被使用。</p>
+
+<p><strong>为单次请求让用户登录</strong></p>
+
+<pre><code>if (Auth::once($credentials))
+{
+    //
+}
+</code></pre>
+
+<p><strong>让用户从应用程序中注销</strong></p>
+
+<pre><code>Auth::logout();
+</code></pre>
+
+<p><a name="manually"></a></p>
+
+<h2>手动登录用户</h2>
+
+<p>如果您需要一个已存在的用户实例登录到您的应用程序，您可以简单地对这个实例调用 <code>login</code> 函数：</p>
+
+<pre><code>$user = User::find(1);
+
+Auth::login($user);
+</code></pre>
+
+<p>这相当于使用 <code>attempt</code> 函数使用户通过凭证进行登录。</p>
+
+<p><a name="protecting-routes"></a></p>
+
+<h2>路由保护</h2>
+
+<p>路由过滤器可用来允许经过认证的用户访问指定的路由。Laravel 默认提供了 <code>auth</code> 过滤器，它定义在 <code>app/filters.php</code> 文件中。</p>
+
+<p><strong>保护一个路由</strong></p>
+
+<pre><code>Route::get('profile', array('before' =&gt; 'auth', function()
+{
+    // Only authenticated users may enter...
+}));
+</code></pre>
+
+<h3>CSRF保护</h3>
+
+<p>Laravel 提供了一种简单的方法抵御跨站请求伪造来保护您的应用程序。</p>
+
+<p><strong>在表单中插入CSRF令牌</strong></p>
+
+<pre><code>&lt;input type="hidden" name="_token" value="&lt;?php echo csrf_token(); ?&gt;"&gt;
+</code></pre>
+
+<p><strong>验证提交的CSRF令牌</strong></p>
+
+<pre><code>Route::post('register', array('before' =&gt; 'csrf', function()
+{
+    return 'You gave a valid CSRF token!';
+}));
+</code></pre>
+
+<p><a name="http-basic-authentication"></a></p>
+
+<h2>HTTP基本认证</h2>
+
+<p>HTTP基本认证提供了一种快速的方法认证用户，而无需设置一个专门的登录页面。首先，在路由中附加 <code>auth.basic</code> 过滤器：</p>
+
+<p><strong>使用HTTP基本认证保护路由</strong></p>
+
+<pre><code>Route::get('profile', array('before' =&gt; 'auth.basic', function()
+{
+    // Only authenticated users may enter...
+}));
+</code></pre>
+
+<p>默认情况下，<code>basic</code> 过滤器在认证中将使用用户记录的 <code>email</code> 字段。如果您希望使用另一个字段，您可以作为第一个参数传递给 <code>basic</code> 函数：</p>
+
+<pre><code>return Auth::basic('username');
+</code></pre>
+
+<p>您也可以使用HTTP基本认证而无需在回话中设置一个用户身份标识 Cookie，这在 API 认证中特别有用。为此，定义一个返回 <code>onceBasic</code> 函数的过滤器：</p>
+
+<p><strong>建立一个无状态的HTTP基本认证过滤器</strong></p>
+
+<pre><code>Route::filter('basic.once', function()
+{
+    return Auth::onceBasic();
+});
+</code></pre>
+
+<p><a name="password-reminders-and-reset"></a></p>
+
+<h2>密码提醒和重置</h2>
+
+<h3>发送密码提醒</h3>
+
+<p>大多数应用程序提供了提供了一种重置已忘记密码的方法。Laravel 提供了简单的方法用来发送提醒以及密码重置，而不是强迫您在每个应用程序中重新实现。首先，请确认 <code>User</code> 模型实现了 <code>Illuminate\Auth\Reminders\RemindableInterface</code> 接口。当然，框架自带的 <code>User</code> 模型已经实现了此接口。</p>
+
+<p><strong>实现RemindableInterface接口</strong></p>
+
+<pre><code>class User extends Eloquent implements RemindableInterface {
+
+    public function getReminderEmail()
+    {
+        return $this-&gt;email;
+    }
+
+}
+</code></pre>
+
+<p>接下来，必选创建一张表用来保存密码重置令牌。可以使用 <code>auth:reminders</code> Artisan 命令对这张表生成一个迁移：</p>
+
+<p><strong>生成Reminder表迁移</strong></p>
+
+<pre><code>php artisan auth:reminders
+
+php artisan migrate
+</code></pre>
+
+<p>可以使用 <code>Password::remind</code> 函数发送一个密码提醒：</p>
+
+<p><strong>发送一个密码提醒</strong></p>
+
+<pre><code>Route::post('password/remind', function()
+{
+    $credentials = array('email' =&gt; Input::get('email'));
+
+    return Password::remind($credentials);
+});
+</code></pre>
+
+<p>注意传递到 <code>remind</code> 函数的参数与 <code>Auth::attempt</code> 函数类似。这个函数将检索用户并通过电子邮件发送一个密码重置的连接。电子邮件视图将被传入一个 <code>token</code> 变量用于构建重置密码表单的链接。<code>user</code> 对象也将传入到视图。</p>
+
+<blockquote><p><strong>注意:</strong> 您可以通过改变 <code>auth.reminder.email</code> 配置选项改变电子邮件消息的视图。当然一个默认的视图可以立即使用。</p></blockquote>
+
+<p>您可以通过一个闭包作为 <code>remind</code> 函数的第二个参数发送个用户修改消息实例：</p>
+
+<pre><code>return Password::remind($credentials, function($message, $user)
+{
+    $message-&gt;subject('Your Password Reminder');
+});
+</code></pre>
+
+<p>您可能已注意到我们从一个路由中直接返回 <code>remind</code> 函数的结果。默认情况下，<code>remind</code> 函数将返回当前 URI 的重定向。如果在重置密码时一个错误发生，一个 <code>error</code> 变量将闪存到会话，还有一个 <code>reason</code>，可用于从 <code>reminders</code> 语言文件中提取一个语言行。如果密码重置成功，一个 <code>success</code> 变量将闪存到会话。所以，您的密码重置表单视图可能类似这样：</p>
+
+<pre><code>@if (Session::has('error'))
+    {{ trans(Session::get('reason')) }}
+@elseif (Session::has('success'))
+    An e-mail with the password reset has been sent.
+@endif
+
+&lt;input type="text" name="email"&gt;
+&lt;input type="submit" value="Send Reminder"&gt;
+</code></pre>
+
+<h3>密码重置</h3>
+
+<p>一旦用户从提醒邮件中点击了重置密码的链接，他们将被引导到一个包含隐藏域 <code>token</code> 以及密码 <code>password</code> 和 密码确认 <code>password_confirmation</code>的表单。下面是一个用于密码重置表单的路由的示例：</p>
+
+<pre><code>Route::get('password/reset/{token}', function($token)
+{
+    return View::make('auth.reset')-&gt;with('token', $token);
+});
+</code></pre>
+
+<p>并且，一个密码重置表单看起来像这样：</p>
+
+<pre><code>@if (Session::has('error'))
+    {{ trans(Session::get('reason')) }}
+@endif
+
+&lt;input type="hidden" name="token" value="{{ $token }}"&gt;
+&lt;input type="text" name="email"&gt;
+&lt;input type="password" name="password"&gt;
+&lt;input type="password" name="password_confirmation"&gt;
+</code></pre>
+
+<p>再次注意，我们使用会话显示重置密码时框架检测到的任何错误。接下来，我们可以定义一个 <code>POST</code> 路由处理密码重置：</p>
+
+<pre><code>Route::post('password/reset/{token}', function()
+{
+    $credentials = array('email' =&gt; Input::get('email'));
+
+    return Password::reset($credentials, function($user, $password)
+    {
+        $user-&gt;password = Hash::make($password);
+
+        $user-&gt;save();
+
+        return Redirect::to('home');
+    });
+});
+</code></pre>
+
+<p>如果密码重置成功，<code>User</code> 实例和密码将被传递给您的闭包，允许您执行保存操作。然后，您可能从 <code>reset</code> 函数返回的闭包中返回一个重定向或任何其他类型的响应。注意 <code>reset</code> 函数对请求自动检查一个有效的 <code>token</code>、有效的身份以及匹配的密码。</p>
+
+<p>同时，类似与 <code>remind</code> 函数，如果在重置密码时一个错误发生，<code>reset</code> 函数将返回一个重定向到当前的 URI，附带一个 <code>error</code> 以及 <code>reason</code>。</p>
+
+<p><a name="encryption"></a></p>
+
+<h2>加密</h2>
+
+<p>Laravel 通过 PHP mcrypt 扩展使用强大的 AES-256 加密。</p>
+
+<p><strong>加密</strong></p>
+
+<pre><code>$encrypted = Crypt::encrypt('secret');
+</code></pre>
+
+<blockquote><p><strong>注意:</strong> 请确认在 <code>app/config/app.php</code> 文件的 <code>key</code> 选项中设置一个32个字符长度的随机字符串。否则，加密的值将不是安全的。</p></blockquote>
+
+<p><strong>解密</strong></p>
+
+<pre><code>$decrypted = Crypt::decrypt($encryptedValue);
+</code></pre>
+
+<p>您也可以设置加密所使用的算法和模式：</p>
+
+<p><strong>设置算法和模式</strong></p>
+
+<pre><code>Crypt::setMode('crt');
+
+Crypt::setCipher($cipher);
+</code></pre>
+</body>
+</html>
