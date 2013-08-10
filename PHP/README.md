@@ -26,6 +26,12 @@
 * http://www.symbolhound.com/
 * http://www.merobase.com/
 
+##Composer 
+* [Composer (作曲家)，PHP 的依赖管理器](https://github.com/huanghua581/notes/blob/master/PHP/composer/00-intro.md)
+* [Composer 的库](https://github.com/huanghua581/notes/blob/master/PHP/composer/02-libraries.md)
+* [Composer 结构](https://github.com/huanghua581/notes/blob/master/PHP/composer/04-schema.md)
+
+
 ##修炼内功
 
 * PHP之道：http://www.phptherightway.com/
@@ -57,4 +63,3 @@
 * 正则 : https://github.com/VerbalExpressions/PHPVerbalExpressions
 * html2markdown : https://github.com/nickcernis/html2markdown
 * A library : https://github.com/walu/yun-lib
-
