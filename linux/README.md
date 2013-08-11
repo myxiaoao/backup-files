@@ -7,13 +7,30 @@
 ##工具
 * http://docs.linuxtone.org/
 * http://soft.vpser.net/
+* http://www.server-world.info/en/
 
 ##镜像
-* http://mirrors.163.com/
-* http://mirrors.sohu.com/
+* 网易开源镜像站：http://mirrors.163.com/ 
+* 搜狐开源镜像站：http://mirrors.sohu.com/
+* 北京交通大学：http://mirror.bjtu.edu.cn/cn/
+* 兰州大学：http://mirror.lzu.edu.cn/ 
+* 北京理工大学：http://mirror.bit.edu.cn/web/
+* 中国科技大学：http://mirrors.ustc.edu.cn/ 、 http://ubuntu.uestc.edu.cn/
+* 清华大学开源镜像网站 : http://mirrors.tuna.tsinghua.edu.cn/
+* 电子科技大学 : http://mirrors.stuhome.net/
+* 天津大学开源软件镜像站 : http://mirror.tju.edu.cn/
+* 厦门大学：http://mirrors.xmu.edu.cn/
+* 上海交通大学：http://ftp.sjtu.edu.cn/
+* 西南大学：http://linux.swu.edu.cn/swudownload/
+* 泰安移动：http://mirrors.ta139.com/
+* 东北大学：http://mirror.neu.edu.cn/
+* 浙江大学：http://mirrors.zju.edu.cn/
+* 东软信息学院：http://mirrors.neusoft.edu.cn/
+* 哈尔滨工业大学： http://run.hit.edu.cn/ 
+* 大连理工大学： http://mirror.dlut.edu.cn/
+* 中国互联网信息中心 http://mirrors.cnnic.cn
+* 西南大学：http://linux.swu.edu.cn/swudownload/Distributions/
+* 首都在线科技股份有限公司：http://mirrors.yun-idc.com/
 
 ##学习
 * http://itercast.com/library/1
-
-
-***MIT license*** 
