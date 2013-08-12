@@ -42,6 +42,7 @@
 * PHP扩展开发及内核应用：https://github.com/walu/phpbook
 * PHP扩展开发及内核应用,源码,PDF：https://github.com/goosman-lei/php-eae
 * 权威的前端性能指南：http://browserdiet.com/zh/
+* PHP Web编程守则：http://funkatron.com/posts/the-microphp-manifesto.html
 
 ###使用Symfony2的组件创建自己的PHP框架
 

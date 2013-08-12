@@ -2,7 +2,8 @@
 
 自己的Linux学习笔记、一些常用的linux资料。
 
-[Linux运维趋势](http://os.51cto.com/art/201011/233915.htm)
+* [Linux运维趋势](http://os.51cto.com/art/201011/233915.htm)
+* http://bbs.linuxtone.org/thread-22436-1-1.html
 
 ##工具
 * http://docs.linuxtone.org/
