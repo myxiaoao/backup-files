@@ -33,5 +33,21 @@
 * 西南大学：http://linux.swu.edu.cn/swudownload/Distributions/
 * 首都在线科技股份有限公司：http://mirrors.yun-idc.com/
 
+###debian
+* http://www.dotdeb.org/instructions/
+* http://dotdeb.90g.org/
+* http://mirror.pcbeta.com/packman/debian/
+
+##发行版
+
+###debian、ubuntu
+* http://www.debian.org/
+* http://www.ubuntu.org.cn/
+* http://www.linuxdeepin.com/index.cn.html
+* http://elementaryos.org/
+* http://pearlinux.fr/
+* http://www.linuxmint.com/
+
+
 ##学习
 * http://itercast.com/library/1

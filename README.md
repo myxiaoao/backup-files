@@ -7,6 +7,7 @@
 * https://github.com/dypsilon/frontend-dev-bookmarks
 * https://github.com/saberma/ruby-dev-bookmarks
 * https://github.com/taobao/nginx-book
+* http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books/
 
 ##导航
 * http://www.nav80.com/
