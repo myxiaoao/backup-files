@@ -1,0 +1,410 @@
+全国嵌入式人才培训基地
+5. Shell脚本语法
+上一页 	第 31 章 Shell脚本	 下一页
+5. Shell脚本语法 请点评
+
+5.1. 条件测试：test [ 请点评
+
+命令test或[可以测试一个条件是否成立，如果测试结果为真，则该命令的Exit Status为0，如果测试结果为假，则命令的Exit Status为1（注意与C语言的逻辑表示正好相反）。例如测试两个数的大小关系：
+
+$ VAR=2
+$ test $VAR -gt 1
+$ echo $?
+0
+$ test $VAR -gt 3
+$ echo $?
+1
+$ [ $VAR -gt 3 ]
+$ echo $?
+1
+虽然看起来很奇怪，但左方括号[确实是一个命令的名字，传给命令的各参数之间应该用空格隔开，比如，$VAR、-gt、3、]是[命令的四个参数，它们之间必须用空格隔开。命令test或[的参数形式是相同的，只不过test命令不需要]参数。以[命令为例，常见的测试命令如下表所示：
+
+表 31.2. 测试命令
+
+[ -d DIR ]	如果DIR存在并且是一个目录则为真
+[ -f FILE ]	如果FILE存在且是一个普通文件则为真
+[ -z STRING ]	如果STRING的长度为零则为真
+[ -n STRING ]	如果STRING的长度非零则为真
+[ STRING1 = STRING2 ]	如果两个字符串相同则为真
+[ STRING1 != STRING2 ]	如果字符串不相同则为真
+[ ARG1 OP ARG2 ]	ARG1和ARG2应该是整数或者取值为整数的变量，OP是-eq（等于）-ne（不等于）-lt（小于）-le（小于等于）-gt（大于）-ge（大于等于）之中的一个
+
+和C语言类似，测试条件之间还可以做与、或、非逻辑运算：
+
+表 31.3. 带与、或、非的测试命令
+
+[ ! EXPR ]	EXPR可以是上表中的任意一种测试条件，!表示逻辑反
+[ EXPR1 -a EXPR2 ]	EXPR1和EXPR2可以是上表中的任意一种测试条件，-a表示逻辑与
+[ EXPR1 -o EXPR2 ]	EXPR1和EXPR2可以是上表中的任意一种测试条件，-o表示逻辑或
+
+例如：
+
+$ VAR=abc
+$ [ -d Desktop -a $VAR = 'abc' ]
+$ echo $?
+0
+注意，如果上例中的$VAR变量事先没有定义，则被Shell展开为空字符串，会造成测试条件的语法错误（展开为[ -d Desktop -a = 'abc' ]），作为一种好的Shell编程习惯，应该总是把变量取值放在双引号之中（展开为[ -d Desktop -a "" = 'abc' ]）：
+
+$ unset VAR
+$ [ -d Desktop -a $VAR = 'abc' ]
+bash: [: too many arguments
+$ [ -d Desktop -a "$VAR" = 'abc' ]
+$ echo $?
+1
+5.2. if/then/elif/else/fi 请点评
+
+和C语言类似，在Shell中用if、then、elif、else、fi这几条命令实现分支控制。这种流程控制语句本质上也是由若干条Shell命令组成的，例如先前讲过的
+
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+其实是三条命令，if [ -f ~/.bashrc ]是第一条，then . ~/.bashrc是第二条，fi是第三条。如果两条命令写在同一行则需要用;号隔开，一行只写一条命令就不需要写;号了，另外，then后面有换行，但这条命令没写完，Shell会自动续行，把下一行接在then后面当作一条命令处理。和[命令一样，要注意命令和各参数之间必须用空格隔开。if命令的参数组成一条子命令，如果该子命令的Exit Status为0（表示真），则执行then后面的子命令，如果Exit Status非0（表示假），则执行elif、else或者fi后面的子命令。if后面的子命令通常是测试命令，但也可以是其它命令。Shell脚本没有{}括号，所以用fi表示if语句块的结束。见下例：
+
+#! /bin/sh
+
+if [ -f /bin/bash ]
+then echo "/bin/bash is a file"
+else echo "/bin/bash is NOT a file"
+fi
+if :; then echo "always true"; fi
+:是一个特殊的命令，称为空命令，该命令不做任何事，但Exit Status总是真。此外，也可以执行/bin/true或/bin/false得到真或假的Exit Status。再看一个例子：
+
+#! /bin/sh
+
+echo "Is it morning? Please answer yes or no."
+read YES_OR_NO
+if [ "$YES_OR_NO" = "yes" ]; then
+  echo "Good morning!"
+elif [ "$YES_OR_NO" = "no" ]; then
+  echo "Good afternoon!"
+else
+  echo "Sorry, $YES_OR_NO not recognized. Enter yes or no."
+  exit 1
+fi
+exit 0
+上例中的read命令的作用是等待用户输入一行字符串，将该字符串存到一个Shell变量中。
+
+此外，Shell还提供了&&和||语法，和C语言类似，具有Short-circuit特性，很多Shell脚本喜欢写成这样：
+
+test "$(whoami)" != 'root' && (echo you are using a non-privileged account; exit 1)
+&&相当于“if...then...”，而||相当于“if not...then...”。&&和||用于连接两个命令，而上面讲的-a和-o仅用于在测试表达式中连接两个测试条件，要注意它们的区别，例如，
+
+test "$VAR" -gt 1 -a "$VAR" -lt 3
+和以下写法是等价的
+
+test "$VAR" -gt 1 && test "$VAR" -lt 3
+5.3. case/esac 请点评
+
+case命令可类比C语言的switch/case语句，esac表示case语句块的结束。C语言的case只能匹配整型或字符型常量表达式，而Shell脚本的case可以匹配字符串和Wildcard，每个匹配分支可以有若干条命令，末尾必须以;;结束，执行时找到第一个匹配的分支并执行相应的命令，然后直接跳到esac之后，不需要像C语言一样用break跳出。
+
+#! /bin/sh
+
+echo "Is it morning? Please answer yes or no."
+read YES_OR_NO
+case "$YES_OR_NO" in
+yes|y|Yes|YES)
+  echo "Good Morning!";;
+[nN]*)
+  echo "Good Afternoon!";;
+*)
+  echo "Sorry, $YES_OR_NO not recognized. Enter yes or no."
+  exit 1;;
+esac
+exit 0
+使用case语句的例子可以在系统服务的脚本目录/etc/init.d中找到。这个目录下的脚本大多具有这种形式（以/etc/apache2为例）：
+
+case $1 in
+	start)
+		...
+	;;
+	stop)
+		...
+	;;
+	reload | force-reload)
+		...
+	;;
+	restart)
+	...
+	*)
+		log_success_msg "Usage: /etc/init.d/apache2 {start|stop|restart|reload|force-reload|start-htcacheclean|stop-htcacheclean}"
+		exit 1
+	;;
+esac
+启动apache2服务的命令是
+
+$ sudo /etc/init.d/apache2 start
+$1是一个特殊变量，在执行脚本时自动取值为第一个命令行参数，也就是start，所以进入start)分支执行相关的命令。同理，命令行参数指定为stop、reload或restart可以进入其它分支执行停止服务、重新加载配置文件或重新启动服务的相关命令。
+
+5.4. for/do/done 请点评
+
+Shell脚本的for循环结构和C语言很不一样，它类似于某些编程语言的foreach循环。例如：
+
+#! /bin/sh
+
+for FRUIT in apple banana pear; do
+  echo "I like $FRUIT"
+done
+FRUIT是一个循环变量，第一次循环$FRUIT的取值是apple，第二次取值是banana，第三次取值是pear。再比如，要将当前目录下的chap0、chap1、chap2等文件名改为chap0~、chap1~、chap2~等（按惯例，末尾有~字符的文件名表示临时文件），这个命令可以这样写：
+
+$ for FILENAME in chap?; do mv $FILENAME $FILENAME~; done
+也可以这样写：
+
+$ for FILENAME in `ls chap?`; do mv $FILENAME $FILENAME~; done
+5.5. while/do/done 请点评
+
+while的用法和C语言类似。比如一个验证密码的脚本：
+
+#! /bin/sh
+
+echo "Enter password:"
+read TRY
+while [ "$TRY" != "secret" ]; do
+  echo "Sorry, try again"
+  read TRY
+done
+下面的例子通过算术运算控制循环的次数：
+
+#! /bin/sh
+
+COUNTER=1
+while [ "$COUNTER" -lt 10 ]; do
+  echo "Here we go again"
+  COUNTER=$(($COUNTER+1))
+done
+Shell还有until循环，类似C语言的do...while循环。本章从略。
+
+习题 请点评
+
+1、把上面验证密码的程序修改一下，如果用户输错五次密码就报错退出。
+
+5.6. 位置参数和特殊变量 请点评
+
+有很多特殊变量是被Shell自动赋值的，我们已经遇到了$?和$1，现在总结一下：
+
+表 31.4. 常用的位置参数和特殊变量
+
+$0	相当于C语言main函数的argv[0]
+$1、$2...	这些称为位置参数（Positional Parameter），相当于C语言main函数的argv[1]、argv[2]...
+$#	相当于C语言main函数的argc - 1，注意这里的#后面不表示注释
+$@	表示参数列表"$1" "$2" ...，例如可以用在for循环中的in后面。
+$?	上一条命令的Exit Status
+$$	当前Shell的进程号
+
+位置参数可以用shift命令左移。比如shift 3表示原来的$4现在变成$1，原来的$5现在变成$2等等，原来的$1、$2、$3丢弃，$0不移动。不带参数的shift命令相当于shift 1。例如：
+
+#! /bin/sh
+
+echo "The program $0 is now running"
+echo "The first parameter is $1"
+echo "The second parameter is $2"
+echo "The parameter list is $@"
+shift
+echo "The first parameter is $1"
+echo "The second parameter is $2"
+echo "The parameter list is $@"
+5.7. 函数 请点评
+
+和C语言类似，Shell中也有函数的概念，但是函数定义中没有返回值也没有参数列表。例如：
+
+#! /bin/sh
+
+foo(){ echo "Function foo is called";}
+echo "-=start=-"
+foo
+echo "-=end=-"
+注意函数体的左花括号{和后面的命令之间必须有空格或换行，如果将最后一条命令和右花括号}写在同一行，命令末尾必须有;号。
+
+在定义foo()函数时并不执行函数体中的命令，就像定义变量一样，只是给foo这个名字一个定义，到后面调用foo函数的时候（注意Shell中的函数调用不写括号）才执行函数体中的命令。Shell脚本中的函数必须先定义后调用，一般把函数定义都写在脚本的前面，把函数调用和其它命令写在脚本的最后（类似C语言中的main函数，这才是整个脚本实际开始执行命令的地方）。
+
+Shell函数没有参数列表并不表示不能传参数，事实上，函数就像是迷你脚本，调用函数时可以传任意个参数，在函数内同样是用$0、$1、$2等变量来提取参数，函数中的位置参数相当于函数的局部变量，改变这些变量并不会影响函数外面的$0、$1、$2等变量。函数中可以用return命令返回，如果return后面跟一个数字则表示函数的Exit Status。
+
+下面这个脚本可以一次创建多个目录，各目录名通过命令行参数传入，脚本逐个测试各目录是否存在，如果目录不存在，首先打印信息然后试着创建该目录。
+
+#! /bin/sh
+
+is_directory()
+{
+  DIR_NAME=$1
+  if [ ! -d $DIR_NAME ]; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+for DIR in "$@"; do
+  if is_directory "$DIR"
+  then :
+  else
+    echo "$DIR doesn't exist. Creating it now..."
+    mkdir $DIR > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+      echo "Cannot create directory $DIR"
+      exit 1
+    fi
+  fi
+done
+注意is_directory()返回0表示真返回1表示假。
+
+
+
+
+Shell语法
+变量:
+在Shell中,我们在使用变量之前并不需要进行声明.相反我们可以在需要的时候进行简单的使用就可以了.在默认的情况下,所有的变量都是作为字符串进行存储的,虽然有时我们会用数字为其赋值.Shell以及其他的一些实用的转换程序会将数字字符串转换成相应的值为进行操作.在Linux系统中是要区分大小的,所以在Shell看来变量foo与Foo是不同的.
+在Shell中我们要访问变量的值,我们要在变量前加上一个$.当我们要为变量赋值时,我们可以只使用变量的名字,Shell会在需要的时候进行动态创建.检测变量内容一个简单的办法就是在终端进行输出,这时要在变量前加上一个$.
+在命令行中我们可以用下面的方法来设置和检测变量的值:
+$ salutation=Hello
+$ echo $salutation
+Hello
+$ salutation=”Yes Dear”
+$ echo $salutation
+Yes Dear
+$ salutation=7+5
+$ echo $salutation
+7+5
+我们还可使用read命令将用户的输入赋值给变量.这样就会将变量的名字作为参数并会等待用户的输入.read命令会在用户输入回车的时候结束.当从终端读入变量时我们并不需要使用引号.如下面的例子:
+$ read salutation
+Wie geht’s?
+$ echo $salutation
+Wie geht’s?
+引号:
+在继续我们的学习之前我们要清楚引号的作用.
+通常脚本中的参数是由空白字符来分隔的,如空格,Tab或是回车.如果我们要我们的参数包含一个或是更多个参数,我们就要使用引号了.
+例如变量$foo的行为要看我们使用的引号的类型了.如果我们是用双引号,在这一行执行时就会用他的值进行替换,而如果我们使用单引号就不会发生这样的替换.我们还可以使用转义字符\来除去$的特殊意义.
+在通常的情况下,我们双引号来包含字符串,这样就可以防止变量被空白符所分隔,而且会用变量的值进行替换.
+在下面的这个例子中我们就会看到引号对于变量输出的影响:
+#!/bin/bash
+myvar=”Hi there”
+echo $myvar
+echo “$myvar”
+echo ‘$myvar’
+echo \$myvar
+echo Enter some text
+read myvar
+echo ‘$myvar’ now equals $myvar
+exit 0
+这个程序的输出为:
+Hi there
+Hi there
+$myvar
+$myvar
+Enter some text
+Hello World
+$myvar now equals Hello World
+工作原理
+我们创建了变理myvar,并赋值为Hi there.变量的内容由命令echo显示出来,从而可以看出$字符扩展对变量内容的影响.从这输出我们可以看出双引号并不会影响变量的替换,而单引号和反斜线却会有这样的影响.我们同时使用一个read命令来从用户得到输入.
+环境变量
+当启动一个Shell脚本时,一些变量会由环境中的值进行初始化.在脚本中这些变量通常为大写字母,从而与用户定义的变量进行区分,而用户定义的变理常用小写字母来表示.创建的变量依赖于我们个人的配置.其中的许多列在手册页中,但是基本的一些列在下面的表中:
+$HOME    当前用户的主目录
+$PATH    用来进行命令查找的由冒号分隔的目录列表
+$PS1    命令提示,通常为$,但是在bash中我们可以使用更为复杂的值.例如,字符串[\u@\h \W]$是流行的默认用法来告诉我们当前的用户,机器名称以及当前的工作目录,同时给出$提示.
+$PS2    第二提示符,当提示额外的输入时使用,通常为>
+$IFS    输入区域分隔符.当Shell读入输入时会使用一个字符列表来分隔输入的单词,通常是空格,tab和新行字符.
+$0    Shell脚本的名称.
+$#    传递的参数个数.
+$$    脚本的进程ID,通常用在一个脚本内部用来建立唯一的一个临时文件,如/tmp/tmp-file_$$.
+如果我们的脚本调用一些参数,那么会建立一些其他的变量.即使没有传递参数,环境变量$#仍然存在,但是值却为0.
+参数变量列在下面这个表中:
+$1,$2,...    传递给脚本的参数.
+$*    以单变量的形式显示所有的参数列表,由环境变量IFS中的第一个字符分隔.
+$@    $*的一个灵巧变形.他并不使用IFS环境变量,所以如果IFS为空那么所有的所有的参数会一起运行.
+我们可以通过下面的测试容易的看出$@和$*的区别:
+$ IFS=’’
+$ set foo bar bam
+$ echo “$@”
+foo bar bam
+$ echo “$*”
+foobarbam
+$ unset IFS
+$ echo “$*”
+foo bar bam
+正如我们所看到的,在双引号内,$@将参数进行分隔显示,而与IFS的值无关.通常来说,如果我们要访问参数,$@是一个很灵敏的选择.
+我们不仅可以用echo命令打印出变量的内容,而且我们可以使用read命令来读取他们的内容.
+参数和环境变量
+下面的脚本展示了简单变量的处理.在我们输入了下面的脚本内容并保存为try_var,我们一定要记得用命令chmod +x try_var为其加上可执行权限.
+#!/bin/sh
+salutation=”Hello”
+echo $salutation
+echo “The program $0 is now running”
+echo “The second parameter was $2”
+echo “The first parameter was $1”
+echo “The parameter list was $*”
+echo “The user’s home directory is $HOME”
+echo “Please enter a new greeting”
+read salutation
+echo $salutation
+echo “The script is now complete”
+exit 0
+如果我们运行这个脚本我们会得到下面的输出:
+~$ ./try_var.sh foo bar baz
+Hello
+The program ./try_var.sh is now running
+The second parameter was bar
+The first parameter list was foo bar baz
+The user's home directory is /home/mylxiaoyi
+Please enter a new greeting
+hello
+The script is now complete
+工作原理:
+这个脚本创建了一个名为salutation的变量并显示他的内空,然后显示了各种参数变量,而环境变量$HOME已经存在并且已经有适当的值.
+函数:
+所有程序语言的基本原则是测试条件并在这些测试的基础上进行各种不同的操作.在我们讨论这个话题之前,我们先来看一下在Shell脚本中我们会用到的函数构造以及我们要使用的控制结构.
+一个Shell脚本可以测试由命令行调用的任何命令的返回代码,包括我们自己书写的脚本.这就是我们在每一个Shell脚本最后包含exit代码的重要原因.
+test或[命令:
+事实上,大多数的脚本大量的使用了Shell真假检测的test或是[命令.在大多数的系统上,[和test命令是同义的,但是当使用了一个[命令时而同时为了可读在末尾使用了一个]命令.使用[命令看起来有一点奇怪,但是这个命令在代码中会使得命令的语法看起来要简单,整洁,并且与其他的程序语言很相像.
+ls -l /usr/bin/[
+-rwxr-xr-x 1 root root 25040 2005-11-16 21:17 /usr/bin/[
+我们会使用一个简单的测试例子来介绍test命令:检测一个文件是否存在.用于这个目的的命令是test -f ,所以我们可以用下面的脚本:
+if test -f fred.c
+then 
+...
+fi
+我们也可以像下面的样子来写:
+if [ -f fred.c ]
+then
+...
+fi
+test命令的返回代码(条件是否满足)决定于条件代码是否运行.
+在这里我们要注意是我们必须在[和条件之间用空格进行分隔.我们可以用下面的方法来记住这一点:[是test命令的另一种写法,而我们要在test命令后输入空格.
+如果我们喜欢将then与if放在同一行,我们必须要加一个冒号来与then进行分隔:
+if [ -f fred.c ]; then
+...
+fi
+我们可以用的test命令的条件类型有以下的三种:字符串比较,算术比较和文件条件.下面的三张表展示了这些条件类型:
+字符串比较:
+string1 = string2    如果相等则为真
+string1 != string2    如果不等则为真
+-n string        如果不空则为真
+-z string        如果为空则为真
+算术比较:
+expression1 -eq expression2    如果相等则为真
+expression1 -ne expression2    如果不等则为真
+expression1 -gt expression2    如果大于则为真
+expression1 -ge    expression2    大于等于则为真
+expression1 -lt expression2    如果小于则为真
+expression1 -le expression2    小于等于则为真
+!expression            如查为假则为真
+文件:
+-d file        如果为目录则为真
+-e file        如果存在则为真(在这里要注意的是,由于历史原因,-e选项并不可移植,所以常用的是-f选项
+-f file        如果为常规文件则为真
+-g file        如果设置了组ID则为真
+-r file        如果文件可读则为真
+-s file        如果文件大小不为零则为真
+-u file        如果设置了用户ID则为真
+-w file        如果文件可写则为真
+-x file        如果文件可执行则为真
+现在我们似乎走得有一点的太前了,但是接下来的是一个例子.在这里我们要测试文件/usr/bash,这样我们就可以清楚的看到这些条件的用法:
+#!/bin/sh
+if [ -f /bin/bash ]
+then
+   echo “file /bin/bash exists”
+fi
+if [ -d /bin/bash ]
+then
+   echo “/bin/bash is a directory”
+else
+   echo “/bin/bash is NOT a directory”
+fi
+在测试为真以前,所有的文件测试条件要法度文件存在.这个列表包含了test命令常用的选项,所以我们可查看手册页得到一个完全的信息.如果我们正在使用bash,而其中内嵌了test,我们可以用命令help test得到详细的信息. 
