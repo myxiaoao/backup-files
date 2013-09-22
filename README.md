@@ -14,6 +14,8 @@
 * http://stackoverflow.com/questions/194812/list-of-freely-available-programming-books/
 * https://github.com/wonderfo/wonderfogo/wiki
 * https://github.com/audreyr/favicon-cheat-sheet
+* https://github.com/DaRaFF/jsgamewiki
+* https://github.com/JuanitoFatas/Guides
 
 ##导航
 * http://www.nav80.com/

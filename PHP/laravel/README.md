@@ -20,6 +20,8 @@ https://github.com/laravel/laravel
 
 ## 推荐
 
+
 * Laravel Packages Registry： http://registry.autopergamene.eu/
 * Packalyst :: Packages for Laravel ： http://packalyst.com/
 * Laravel4 Vagrant开发包：https://github.com/huanghua581/Laravel4-Vagrant
+* http://laravelsd.com/

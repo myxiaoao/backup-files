@@ -5,6 +5,9 @@
 * [Linux运维趋势](http://os.51cto.com/art/201011/233915.htm)
 * http://bbs.linuxtone.org/thread-22436-1-1.html
 
+http://distrowatch.com/
+
+
 ##工具
 * http://docs.linuxtone.org/
 * http://soft.vpser.net/
@@ -47,6 +50,8 @@
 * http://elementaryos.org/
 * http://pearlinux.fr/
 * http://www.linuxmint.com/
+* http://peppermintos.com/
+* http://crunchbang.org/
 
 
 ##学习
