@@ -16,6 +16,8 @@
 * https://github.com/audreyr/favicon-cheat-sheet
 * https://github.com/DaRaFF/jsgamewiki
 * https://github.com/JuanitoFatas/Guides
+* https://github.com/astaxie/build-web-application-with-golang
+* http://github.ibireme.com/github/list/ios/
 
 ##导航
 * http://www.nav80.com/
