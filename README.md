@@ -18,6 +18,8 @@
 * https://github.com/JuanitoFatas/Guides
 * https://github.com/astaxie/build-web-application-with-golang
 * http://github.ibireme.com/github/list/ios/
+* https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md
+* https://github.com/kirang89/pycrumbs/blob/master/pycrumbs.md
 
 ##导航
 * http://www.nav80.com/
