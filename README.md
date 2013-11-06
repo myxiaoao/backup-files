@@ -5,6 +5,7 @@
 
 * http://devtoolsecrets.com/
 * http://jinlong.github.io/blog/2013/08/29/devtoolsecrets/
+* 前端知识体系：http://knowledge.ecomfe.com/
 
 ##推荐
 * http://i.linuxtoy.org/docs/guide/
@@ -20,9 +21,13 @@
 * http://github.ibireme.com/github/list/ios/
 * https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md
 * https://github.com/kirang89/pycrumbs/blob/master/pycrumbs.md
+* https://github.com/jmcunningham/AngularJS-Learning
 
 ##导航
 * http://www.nav80.com/
 * http://dh.kaifazhe.com/
+
+
+
 
 ***MIT license*** 
