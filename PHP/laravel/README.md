@@ -10,6 +10,7 @@ https://github.com/laravel/laravel
 ## Laravel 中文资源 [常用]
 
 * Laravel 手册 ： https://github.com/huanghua581/notes/blob/master/PHP/laravel/docs/documentation.md
+* https://github.com/fineen/laravel-docs
 
 * [Laravel 4 中文文档 - GoLaravel](http://www.golaravel.com/docs/)
 
@@ -25,3 +26,5 @@ https://github.com/laravel/laravel
 * Packalyst :: Packages for Laravel ： http://packalyst.com/
 * Laravel4 Vagrant开发包：https://github.com/huanghua581/Laravel4-Vagrant
 * http://laravelsd.com/
+* https://github.com/maliang/LikeLaravel
+* https://github.com/golaravel/laravel4docs

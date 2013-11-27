@@ -8,6 +8,12 @@
 * 前端知识体系：http://knowledge.ecomfe.com/
 * http://html5ify.com/fks/
 
+##入门
+* 学习CSS布局 http://zh.learnlayout.com/index.html
+* Markdown 语法简体中文版 https://github.com/riku/Markdown-Syntax-CN
+* 简单易懂的 OAuth 2.0 https://speakerdeck.com/chitsaou/jian-dan-yi-dong-de-oauth-2-dot-0
+
+
 ##推荐
 * http://i.linuxtoy.org/docs/guide/
 * https://github.com/dypsilon/frontend-dev-bookmarks
@@ -24,9 +30,11 @@
 * https://github.com/kirang89/pycrumbs/blob/master/pycrumbs.md
 * https://github.com/jmcunningham/AngularJS-Learning
 * http://www.mysqlplus.net/mysql-docs/
+* https://github.com/justjavac/free-programming-books-zh_CN
+* http://resrc.io/list/10/list-of-free-programming-books/
+* https://github.com/Thibaut/devdocs
 
-##入门
-* 学习CSS布局 http://zh.learnlayout.com/index.html
+
 
 
 ##导航
