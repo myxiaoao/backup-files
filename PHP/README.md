@@ -7,6 +7,7 @@
 * PuPHPet：https://puphpet.com/
 * 常用框架：https://github.com/codeguy/php-the-right-way/wiki/Frameworks
 * PHP Framework Interop Group： http://www.php-fig.org/
+* http://www.learn-php.org/
 
 ###CDN公共库
 * http://developer.baidu.com/wiki/index.php?title=docs/cplat/libs
@@ -66,3 +67,4 @@
 * 正则 : https://github.com/VerbalExpressions/PHPVerbalExpressions
 * html2markdown : https://github.com/nickcernis/html2markdown
 * A library : https://github.com/walu/yun-lib
+* https://github.com/ziadoz/awesome-php

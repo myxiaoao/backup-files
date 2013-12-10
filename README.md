@@ -7,11 +7,14 @@
 * http://jinlong.github.io/blog/2013/08/29/devtoolsecrets/
 * 前端知识体系：http://knowledge.ecomfe.com/
 * http://html5ify.com/fks/
+* https://github.com/foru17/front-end-collect
+* http://usablica.github.io/front-end-frameworks/compare.html
 
 ##入门
 * 学习CSS布局 http://zh.learnlayout.com/index.html
 * Markdown 语法简体中文版 https://github.com/riku/Markdown-Syntax-CN
 * 简单易懂的 OAuth 2.0 https://speakerdeck.com/chitsaou/jian-dan-yi-dong-de-oauth-2-dot-0
+* git 学习 http://try.github.io/
 
 
 ##推荐
@@ -33,6 +36,9 @@
 * https://github.com/justjavac/free-programming-books-zh_CN
 * http://resrc.io/list/10/list-of-free-programming-books/
 * https://github.com/Thibaut/devdocs
+* https://github.com/freebook 、 http://netkiller.github.io/
+* https://github.com/youyudehexie/node123
+* http://cpp1x.org/
 
 
 
@@ -45,4 +51,4 @@
 
 
 
-***MIT license*** 
+***MIT license***
