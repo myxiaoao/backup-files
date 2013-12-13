@@ -2,12 +2,16 @@
 
 自己的PHP学习笔记、一些常用的PHP资料。
 
+
+http://blog.segmentfault.com/weakish/1190000000358325
+
 ##工具
 
 * PuPHPet：https://puphpet.com/
 * 常用框架：https://github.com/codeguy/php-the-right-way/wiki/Frameworks
 * PHP Framework Interop Group： http://www.php-fig.org/
 * http://www.learn-php.org/
+* http://phpsh.org/
 
 ###CDN公共库
 * http://developer.baidu.com/wiki/index.php?title=docs/cplat/libs
