@@ -12,6 +12,7 @@ http://blog.segmentfault.com/weakish/1190000000358325
 * PHP Framework Interop Group： http://www.php-fig.org/
 * http://www.learn-php.org/
 * http://phpsh.org/
+* https://github.com/CHH/php-build
 
 ###CDN公共库
 * http://developer.baidu.com/wiki/index.php?title=docs/cplat/libs

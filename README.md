@@ -39,6 +39,7 @@
 * https://github.com/freebook 、 http://netkiller.github.io/
 * https://github.com/youyudehexie/node123
 * http://cpp1x.org/
+* https://github.com/howiehu/vim_tutorials
 
 
 
