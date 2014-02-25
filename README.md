@@ -2,6 +2,9 @@
 
 欢迎纠错：https://github.com/huanghua581/notes/issues
 
+* https://github.com/pubyun/macdev
+
+
 
 * http://devtoolsecrets.com/
 * http://jinlong.github.io/blog/2013/08/29/devtoolsecrets/

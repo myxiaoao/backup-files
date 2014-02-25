@@ -73,3 +73,6 @@ http://blog.segmentfault.com/weakish/1190000000358325
 * html2markdown : https://github.com/nickcernis/html2markdown
 * A library : https://github.com/walu/yun-lib
 * https://github.com/ziadoz/awesome-php
+* https://github.com/noodlehaus/dispatch
+* https://github.com/radiosilence/Ham
+* https://github.com/chriso/klein.php
