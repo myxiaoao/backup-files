@@ -28,3 +28,4 @@ https://github.com/laravel/laravel
 * http://laravelsd.com/
 * https://github.com/maliang/LikeLaravel
 * https://github.com/golaravel/laravel4docs
+* http://scotch.io/tag/laravel
