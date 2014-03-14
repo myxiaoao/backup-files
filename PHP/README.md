@@ -38,6 +38,7 @@ http://blog.segmentfault.com/weakish/1190000000358325
 * [Composer 的库](https://github.com/huanghua581/notes/blob/master/PHP/composer/02-libraries.md)
 * [Composer 结构](https://github.com/huanghua581/notes/blob/master/PHP/composer/04-schema.md)
 
+* https://github.com/5-say/composer-doc-cn
 
 ##修炼内功
 

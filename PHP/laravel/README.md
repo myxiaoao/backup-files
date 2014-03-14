@@ -18,6 +18,9 @@ https://github.com/laravel/laravel
 
 * [Laravel 3 中文文档 - GoLaravel](http://v3.golaravel.com/docs/)
 
+* https://github.com/5-say/laravel-4.1-quick-start-cn
+
+
 
 ## 推荐
 

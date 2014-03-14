@@ -43,6 +43,11 @@
 * https://github.com/youyudehexie/node123
 * http://cpp1x.org/
 * https://github.com/howiehu/vim_tutorials
+* https://github.com/zhangxinxu/zxx.lib.css
+* https://github.com/mrmrs/colors
+
+* https://github.com/daylerees/colour-schemes
+
 
 
 
