@@ -52,6 +52,9 @@ http://blog.segmentfault.com/weakish/1190000000358325
 * 权威的前端性能指南：http://browserdiet.com/zh/
 * PHP Web编程守则：http://funkatron.com/posts/the-microphp-manifesto.html
 
+* http://wuduoyi.com/note/hhvm/
+
+
 ###使用Symfony2的组件创建自己的PHP框架
 
 * [第一部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/1.md) 

@@ -47,6 +47,10 @@
 * https://github.com/mrmrs/colors
 
 * https://github.com/daylerees/colour-schemes
+* https://github.com/chriskempson/base16
+
+* https://github.com/qyuhen/book
+
 
 
 
