@@ -32,3 +32,4 @@ https://github.com/laravel/laravel
 * https://github.com/maliang/LikeLaravel
 * https://github.com/golaravel/laravel4docs
 * http://scotch.io/tag/laravel
+* http://cheats.jesse-obrien.ca/

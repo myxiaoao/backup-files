@@ -33,7 +33,7 @@ http://blog.segmentfault.com/weakish/1190000000358325
 * http://www.symbolhound.com/
 * http://www.merobase.com/
 
-##Composer 
+##Composer
 * [Composer (作曲家)，PHP 的依赖管理器](https://github.com/huanghua581/notes/blob/master/PHP/composer/00-intro.md)
 * [Composer 的库](https://github.com/huanghua581/notes/blob/master/PHP/composer/02-libraries.md)
 * [Composer 结构](https://github.com/huanghua581/notes/blob/master/PHP/composer/04-schema.md)
@@ -57,19 +57,21 @@ http://blog.segmentfault.com/weakish/1190000000358325
 
 ###使用Symfony2的组件创建自己的PHP框架
 
-* [第一部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/1.md) 
-* [第二部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/2.md) 
-* [第三部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/3.md) 
-* [第四部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/4.md) 
-* [第五部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/5.md) 
-* [第六部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/6.md)  
-* [第七部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/7.md) 
+* [第一部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/1.md)
+* [第二部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/2.md)
+* [第三部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/3.md)
+* [第四部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/4.md)
+* [第五部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/5.md)
+* [第六部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/6.md)
+* [第七部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/7.md)
 * [第八部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/8.md)
-* [第九部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/9.md) 
-* [第十部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/10.md) 
-* [第十一部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/11.md) 
-* [第十二部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/12.md) 
+* [第九部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/9.md)
+* [第十部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/10.md)
+* [第十一部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/11.md)
+* [第十二部分](https://github.com/huanghua581/notes/tree/master/PHP/symfony/create-your-own-framework-on-top-of-the-symfony2-components/12.md)
 
+
+https://github.com/happen-zhang/symfony2-jobeet-tutorial
 
 ##Github 推荐
 

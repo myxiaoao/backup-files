@@ -52,7 +52,8 @@
 * https://github.com/qyuhen/book
 
 
-
+* https://github.com/greatghoul/remote-working
+* https://github.com/avelino/awesome-go
 
 
 
