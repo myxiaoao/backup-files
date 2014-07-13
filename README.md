@@ -54,6 +54,7 @@
 
 * https://github.com/greatghoul/remote-working
 * https://github.com/avelino/awesome-go
+* https://git.oschina.net/itfanr/JavaDesignPattern
 
 
 
