@@ -6,6 +6,7 @@
 
 ##资料
 * http://wzbs.org/
+* http://www.wptherightway.org/
 
 ##Theme Framework
 * https://github.com/Automattic/_s

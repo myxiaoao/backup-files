@@ -56,6 +56,8 @@
 * https://github.com/avelino/awesome-go
 * https://git.oschina.net/itfanr/JavaDesignPattern
 
+* https://github.com/shockerli/Notes
+
 
 
 ##导航
