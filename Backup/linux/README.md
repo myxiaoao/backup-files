@@ -1,19 +1,17 @@
-# Linux Learning Resources [学习资料]
-
-自己的Linux学习笔记、一些常用的linux资料。
+# 学习资料
 
 * [Linux运维趋势](http://os.51cto.com/art/201011/233915.htm)
 * http://bbs.linuxtone.org/thread-22436-1-1.html
+* http://distrowatch.com/
 
-http://distrowatch.com/
 
-
-##工具
+## 工具
 * http://docs.linuxtone.org/
 * http://soft.vpser.net/
 * http://www.server-world.info/en/
 
-##镜像
+## 镜像
+* 阿里云：https://mirrors.aliyun.com/
 * 网易开源镜像站：http://mirrors.163.com/ 
 * 搜狐开源镜像站：http://mirrors.sohu.com/
 * 北京交通大学：http://mirror.bjtu.edu.cn/cn/
@@ -32,27 +30,11 @@ http://distrowatch.com/
 * 东软信息学院：http://mirrors.neusoft.edu.cn/
 * 哈尔滨工业大学： http://run.hit.edu.cn/ 
 * 大连理工大学： http://mirror.dlut.edu.cn/
-* 中国互联网信息中心 http://mirrors.cnnic.cn
+* 中国互联网信息中心：http://mirrors.cnnic.cn
 * 西南大学：http://linux.swu.edu.cn/swudownload/Distributions/
 * 首都在线科技股份有限公司：http://mirrors.yun-idc.com/
 
-###debian
+### Debian
 * http://www.dotdeb.org/instructions/
 * http://dotdeb.90g.org/
 * http://mirror.pcbeta.com/packman/debian/
-
-##发行版
-
-###debian、ubuntu
-* http://www.debian.org/
-* http://www.ubuntu.org.cn/
-* http://www.linuxdeepin.com/index.cn.html
-* http://elementaryos.org/
-* http://pearlinux.fr/
-* http://www.linuxmint.com/
-* http://peppermintos.com/
-* http://crunchbang.org/
-
-
-##学习
-* http://itercast.com/library/1
